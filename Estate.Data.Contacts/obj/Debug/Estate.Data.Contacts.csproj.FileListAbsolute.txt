@@ -1,0 +1,7 @@
+d:\documents\visual studio 2015\Projects\EStates\Estate.Data.Contacts\bin\Debug\Estate.Data.Contacts.dll
+d:\documents\visual studio 2015\Projects\EStates\Estate.Data.Contacts\bin\Debug\Estate.Data.Contacts.pdb
+d:\documents\visual studio 2015\Projects\EStates\Estate.Data.Contacts\bin\Debug\Estate.Data.Entities.dll
+d:\documents\visual studio 2015\Projects\EStates\Estate.Data.Contacts\bin\Debug\Estate.Data.Entities.pdb
+d:\documents\visual studio 2015\Projects\EStates\Estate.Data.Contacts\obj\Debug\Estate.Data.Contacts.csprojResolveAssemblyReference.cache
+d:\documents\visual studio 2015\Projects\EStates\Estate.Data.Contacts\obj\Debug\Estate.Data.Contacts.dll
+d:\documents\visual studio 2015\Projects\EStates\Estate.Data.Contacts\obj\Debug\Estate.Data.Contacts.pdb

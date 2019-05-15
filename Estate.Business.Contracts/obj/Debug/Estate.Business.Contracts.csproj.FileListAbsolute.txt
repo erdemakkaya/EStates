@@ -1,0 +1,13 @@
+d:\documents\visual studio 2015\Projects\EStates\Estate.Business.Contracts\bin\Debug\Estate.Business.Contracts.dll
+d:\documents\visual studio 2015\Projects\EStates\Estate.Business.Contracts\bin\Debug\Estate.Business.Contracts.pdb
+d:\documents\visual studio 2015\Projects\EStates\Estate.Business.Contracts\bin\Debug\Estate.Core.Contracts.dll
+d:\documents\visual studio 2015\Projects\EStates\Estate.Business.Contracts\bin\Debug\Estate.Core.Contracts.pdb
+d:\documents\visual studio 2015\Projects\EStates\Estate.Business.Contracts\obj\Debug\Estate.Business.Contracts.csprojResolveAssemblyReference.cache
+d:\documents\visual studio 2015\Projects\EStates\Estate.Business.Contracts\obj\Debug\Estate.Business.Contracts.dll
+d:\documents\visual studio 2015\Projects\EStates\Estate.Business.Contracts\obj\Debug\Estate.Business.Contracts.pdb
+d:\documents\visual studio 2015\Projects\EStates\Estate.Business.Contracts\bin\Debug\Estate.Data.Contacts.dll
+d:\documents\visual studio 2015\Projects\EStates\Estate.Business.Contracts\bin\Debug\Estate.Data.Entities.dll
+d:\documents\visual studio 2015\Projects\EStates\Estate.Business.Contracts\bin\Debug\Estate.Data.Contacts.pdb
+d:\documents\visual studio 2015\Projects\EStates\Estate.Business.Contracts\bin\Debug\Estate.Data.Entities.pdb
+d:\documents\visual studio 2015\Projects\EStates\Estate.Business.Contracts\bin\Debug\Estate.Core.dll
+d:\documents\visual studio 2015\Projects\EStates\Estate.Business.Contracts\bin\Debug\Estate.Core.pdb

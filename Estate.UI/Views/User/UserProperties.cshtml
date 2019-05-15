@@ -1,0 +1,103 @@
+﻿@using Estate.Data.Entities;
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "UserProperties";
+}
+@model  PagedList.IPagedList<Property>
+
+
+<div id="page-content">
+    <!-- Breadcrumb -->
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="#">Anasayfa</a></li>
+            <li><a href="#">Kullanıcı</a></li>
+            <li class="active">İlanlar/Talepler</li>
+        </ol>
+    </div>
+    <!-- end Breadcrumb -->
+
+    <div class="container">
+        <div class="row">
+            <!-- sidebar -->
+            <div class="col-md-3 col-sm-2">
+                <section id="sidebar">
+                    <header><h3>Account</h3></header>
+                    <aside>
+                        <ul class="sidebar-navigation">
+                            <li><a href="/User/Profile"><i class="fa fa-user"></i><span>Profile</span></a></li>
+                            <li class="active"><a href="/User/UserProperties"><i class="fa fa-home"></i><span>My Properties</span></a></li>
+                            @*<li><a href="bookmarked.html"><i class="fa fa-heart"></i><span>Bookmarked Properties</span></a></li>*@
+                        </ul>
+                    </aside>
+                </section><!-- /#sidebar -->
+            </div><!-- /.col-md-3 -->
+            <!-- end Sidebar -->
+            <!-- My Properties -->
+            <div class="col-md-9 col-sm-10">
+                <section id="my-properties">
+                    <header><h1>My Properties</h1></header>
+                    <div class="my-properties">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>İlan/Talep</th>
+                                        <th></th>
+                                        <th>Eklenme Tarihi</th>
+                                        <th>Tip</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td class="image">
+                                                <a href="/Asset/Detail/@item.Id"><img alt="" src="~/Gallery/@item.Id/@item.Photo.FirstOrDefault().ImageUrl"></a>
+                                            </td>
+                                            <td>
+                                                <div class="inner">
+                                                    <a href="/Asset/Detail/@item.Id"><h2>@item.City </h2></a>
+                                                    <figure>@item.GeoLocation.Address </figure>
+                                                    <div class="tag price">₺ @item.Price</div>
+                                                </div>
+                                            </td>
+                                            <td>@item.CreatedDate</td>
+                                            @if (@item.IsSold)
+                                            {
+                                                <td class="actions"> <a href="#" class="edit"><i class="fa fa-money"></i> Satıldı</a></td>
+
+                                            }
+                                            else
+                                            {
+                                                <td class="actions"> <a href="/Asset/Sold/@item.Id" class="edit"><i class="fa fa-money"></i> Sat</a></td>
+
+                                            }
+
+                                            <td class="actions">
+                                                <a href="/Asset/Edit/@item.Id" class="edit"><i class="fa fa-pencil"></i>Edit</a>
+                                                <a href="/Asset/Delete/@item.Id"><i class="delete fa fa-trash-o"></i></a>
+                                            </td>
+                                        </tr>
+
+                                    }
+                                
+                                </tbody>
+                            </table>
+                        </div><!-- /.table-responsive -->
+                        <!-- Pagination -->
+                        <div class="center">
+                            @Html.PagedListPager(Model, page => Url.Action("UserProperties", new { page }), PagedListRenderOptions.Classic)
+
+                      
+                        </div><!-- /.center-->
+                    </div><!-- /.my-properties -->
+                </section><!-- /#my-properties -->
+            </div><!-- /.col-md-9 -->
+            <!-- end My Properties -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</div>
+
+

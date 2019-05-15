@@ -1,0 +1,16 @@
+d:\documents\visual studio 2015\Projects\EStates\Estate.Data\bin\Debug\Estate.Data.dll.config
+d:\documents\visual studio 2015\Projects\EStates\Estate.Data\bin\Debug\Estate.Data.dll
+d:\documents\visual studio 2015\Projects\EStates\Estate.Data\bin\Debug\Estate.Data.pdb
+d:\documents\visual studio 2015\Projects\EStates\Estate.Data\bin\Debug\EntityFramework.dll
+d:\documents\visual studio 2015\Projects\EStates\Estate.Data\bin\Debug\EntityFramework.SqlServer.dll
+d:\documents\visual studio 2015\Projects\EStates\Estate.Data\bin\Debug\Estate.Data.Contacts.dll
+d:\documents\visual studio 2015\Projects\EStates\Estate.Data\bin\Debug\Estate.Data.Entities.dll
+d:\documents\visual studio 2015\Projects\EStates\Estate.Data\bin\Debug\Estate.Data.Contacts.pdb
+d:\documents\visual studio 2015\Projects\EStates\Estate.Data\bin\Debug\Estate.Data.Entities.pdb
+d:\documents\visual studio 2015\Projects\EStates\Estate.Data\bin\Debug\EntityFramework.xml
+d:\documents\visual studio 2015\Projects\EStates\Estate.Data\bin\Debug\EntityFramework.SqlServer.xml
+d:\documents\visual studio 2015\Projects\EStates\Estate.Data\obj\Debug\Estate.Data.csprojResolveAssemblyReference.cache
+d:\documents\visual studio 2015\Projects\EStates\Estate.Data\obj\Debug\Estate.Data.dll
+d:\documents\visual studio 2015\Projects\EStates\Estate.Data\obj\Debug\Estate.Data.pdb
+d:\documents\visual studio 2015\Projects\EStates\Estate.Data\obj\Debug\Estate.Data.Migrations.Estate1.resources
+d:\documents\visual studio 2015\Projects\EStates\Estate.Data\obj\Debug\Estate.Data.csproj.GenerateResource.Cache

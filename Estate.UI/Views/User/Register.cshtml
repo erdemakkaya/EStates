@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "Register";
+}
+
+<div id="page-content">
+    <!-- Breadcrumb -->
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li class="active">Hesap Oluştur</li>
+        </ol>
+    </div>
+    <!-- end Breadcrumb -->
+
+    <div class="container">
+        <header><h1>Create an Account</h1></header>
+        <div class="row">
+            <div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
+@using (@Html.BeginForm("Register", "User", FormMethod.Post, new { @id = "form-create-account", enctype = "multipart/form-data" }))
+
+{       
+                    <hr>
+                    <div class="form-group">
+                        <label for="form-create-account-full-name">Ad:</label>
+                        <input type="text" name="Name" class="form-control" id="form-create-account-full-name" required>
+                    </div><!-- /.form-group -->
+                    <div class="form-group">
+                        <label for="form-create-account-full-name">SoyAd:</label>
+                        <input type="text" name="Surname" class="form-control" id="form-create-account-full-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="form-create-account-full-name">Tel:</label>
+                        <input type="text" name="Phone" class="form-control" id="form-create-account-full-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="form-create-account-full-name">Cep:</label>
+                        <input type="text" name="Mobile" class="form-control" id="form-create-account-full-name" required>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="form-create-account-email">Email:</label>
+                        <input type="email" name="Mail" class="form-control" id="form-create-account-email" required>
+                    </div><!-- /.form-group -->
+                    <div class="form-group">
+                        <label for="form-create-account-password">Password:</label>
+                        <input type="password" name="Pw" class="form-control" id="form-create-account-password" required>
+                    </div><!-- /.form-group -->
+                    <div class="form-group">
+                        <label for="form-create-account-confirm-password">Confirm Password:</label>
+                        <input type="password" class="form-control" id="form-create-account-confirm-password" required>
+                    </div><!-- /.form-group -->
+                    @*<div class="checkbox pull-left">
+                        <label>
+                            <input type="checkbox" id="account-type-newsletter" name="account-newsletter">Yeni olaylardan Ha
+                        </label>
+                    </div>*@
+                    <div class="form-group clearfix">
+                        <button type="submit" class="btn pull-right btn-default" id="account-submit">Hesap Oluştur</button>
+                    </div><!-- /.form-group -->
+}
+                <hr>
+                <div class="center">
+                    <figure class="note">By clicking the “Create an Account” button you agree with our <a href="terms-conditions.html">Terms and conditions</a></figure>
+                </div>
+            </div>
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</div>

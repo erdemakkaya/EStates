@@ -1,0 +1,278 @@
+﻿@using Estate.Data.Entities;
+@model  List<Property>
+@{
+   
+    ViewBag.Title = "Index";
+}
+
+<div class="container">
+    <div class="geo-location-wrapper">
+        <span class="btn geo-location"><i class="fa fa-map-marker"></i><span class="text">Find My Position</span></span>
+    </div>
+</div>
+
+<div id="map" class="has-parallax"></div>
+<!-- end Map -->
+<!-- Search Box -->
+<div class="search-box-wrapper">
+    <div class="search-box-inner">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-4">
+                    <div class="search-box map">
+@using (@Html.BeginForm("Index","Asset", FormMethod.Post, new { @class = "form-map form-search", @id = "form-map" }))
+{
+                            @Html.Partial("_SearchProperty")
+}
+                    </div><!-- /.search-box.map -->
+                </div><!-- /.col-md-3 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </div><!-- /.search-box-inner -->
+</div>
+<!-- end Search Box -->
+<!-- Page Content -->
+<div id="page-content">
+    <section id="banner">
+        <div class="block has-dark-background background-color-default-darker center text-banner">
+            <div class="container">
+                <h1 class="no-bottom-margin no-border">Estate Türkiye'nin En Büyük Mülk İlan Platformudur. <a href="#" class="text-underline">Binlerle Emlak</a>!</h1>
+            </div>
+        </div>
+    </section><!-- /#banner -->
+    <section id="our-services" class="block">
+        <div class="container">
+            <header class="section-title"><h2>Hizmetlerimiz</h2></header>
+            <div class="row">
+                <div class="col-md-4 col-sm-4">
+                    <div class="feature-box equal-height">
+                        <figure class="icon"><i class="fa fa-folder"></i></figure>
+                        <aside class="description">
+                            <header><h3>Tüm Türkiye' de</h3></header>
+                            <p>Her Fiyata Uygun İlan Ve Talepler</p>
+                            @*<a href="properties-listing.html" class="link-arrow">Read More</a>*@
+                        </aside>
+                    </div><!-- /.feature-box -->
+                </div><!-- /.col-md-4 -->
+                <div class="col-md-4 col-sm-4">
+                    <div class="feature-box equal-height">
+                        <figure class="icon"><i class="fa fa-users"></i></figure>
+                        <aside class="description">
+                            <header><h3>50+ Emlak Ajansı ve Binlerce Müşteri</h3></header>
+                            <p>Bir çok Emlak Ajansı ve Müşterilerimizle Dünyanın En büyü Emlak Paylaşım Platformu </p>
+                      
+                        </aside>
+                    </div><!-- /.feature-box -->
+                </div><!-- /.col-md-4 -->
+                <div class="col-md-4 col-sm-4">
+                    <div class="feature-box equal-height">
+                        <figure class="icon"><i class="fa fa-money"></i></figure>
+                        <aside class="description">
+                            <header><h3>En iyi Fiyat Garantili!</h3></header>
+                            <p></p>
+                            @*<a href="#" class="link-arrow">Read More</a>*@
+                        </aside>
+                    </div><!-- /.feature-box -->
+                </div><!-- /.col-md-4 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /#our-services -->
+    <section id="price-drop" class="block">
+        <div class="container">
+            <header class="section-title">
+                <h2>İndirimli İlanlar</h2>
+                <a href="/Asset/Index" class="link-arrow">All Properties</a>
+            </header>
+            <div class="row">
+            @for (int i = 0; i < Model.Count; i++)
+            {
+            
+                <div class="col-md-3 col-sm-6">
+                    <div class="property">
+                        <a href="/Asset/Detail/@Model[i].Id">
+                            <div class="property-image">
+                                <img alt="" src="~/Gallery/@Model[i].Id/@Model[i].Photo.FirstOrDefault().ImageUrl">
+                            </div>
+                            <div class="overlay">
+                                <div class="info">
+                                    <div class="tag price">₺ @Model[i].Price</div>
+                                    <h3>@Model[i].City </h3>
+                                    <figure>@Model[i].GeoLocation.Address</figure>
+                                </div>
+                                <ul class="additional-info">
+                                    <li>
+                                        <header>Alan:</header>
+                                        <figure>@Model[i].Area m<sup>2</sup></figure>
+                                    </li>
+                                    <li>
+                                        <header>İlan No:</header>
+                                        <figure>@Model[i].Id</figure>
+                                    </li>
+                                    <li>
+                                        <header>Oda:</header>
+                                        <figure>@Model[i].Room</figure>
+                                    </li>
+                                    <li>
+                                        <header>Garages:</header>
+                                        <figure>0</figure>
+                                    </li>
+                                </ul>
+                            </div>
+                        </a>
+                    </div><!-- /.property -->
+                </div><!-- /.col-md-3 -->
+            }
+         
+            
+              
+
+           
+                
+            </div><!-- /.row-->
+        </div><!-- /.container -->
+    </section><!-- /#price-drop -->
+    <aside id="advertising" class="block">
+        <div class="container">
+            <a href="/Asset/Add">
+                <div class="banner">
+                    <div class="wrapper">
+                        <span class="title">İlanlarınız Burada görünmesini İster misiniz ?</span>
+                        <span class="submit">Şimdi İlan Ver! <i class="fa fa-plus-square"></i></span>
+                    </div>
+                </div><!-- /.banner-->
+            </a>
+        </div>
+    </aside><!-- /#adveritsing-->
+    <section id="new-properties" class="block">
+        <div class="container">
+            <header class="section-title">
+                <h2>Sizin İçin Yeni İlanlar</h2>
+                <a href="/Asset/Index" class="link-arrow">All Properties</a>
+            </header>
+            <div class="row">
+                @for (int i = 0; i < Model.Count; i++)
+                {
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="property">
+                            <a href="/Asset/Detail/@Model[i].Id">
+                                <div class="property-image">
+                                    <img alt="" src="~/Gallery/@Model[i].Id/@Model[i].Photo.FirstOrDefault().ImageUrl">
+                                </div>
+                                <div class="overlay">
+                                    <div class="info">
+                                        <div class="tag price">₺ @Model[i].Price</div>
+                                        <h3>@Model[i].City </h3>
+                                        <figure>@Model[i].GeoLocation.Address</figure>
+                                    </div>
+                                    <ul class="additional-info">
+                                        <li>
+                                            <header>Alan:</header>
+                                            <figure>@Model[i].Area m<sup>2</sup></figure>
+                                        </li>
+                                        <li>
+                                            <header>İlan No:</header>
+                                            <figure>@Model[i].Id</figure>
+                                        </li>
+                                        <li>
+                                            <header>Oda:</header>
+                                            <figure>@Model[i].Room</figure>
+                                        </li>
+                                        <li>
+                                            <header>Garages:</header>
+                                            <figure>0</figure>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </a>
+                        </div><!-- /.property -->
+                    </div><!-- /.col-md-3 -->
+                }
+            </div><!-- /.row-->
+        
+        </div><!-- /.container-->
+    </section><!-- /#new-properties-->
+    <section id="partners" class="block">
+        <div class="container">
+            <header class="section-title"><h2>İş Ortaklarımız</h2></header>
+            <div class="logos">
+                <div class="logo"><a href="#"><img src="~/Content/assets/img/logo-partner-01.png" alt=""></a></div>
+                <div class="logo"><a href="#"><img src="~/Content/assets/img/logo-partner-02.png" alt=""></a></div>
+                <div class="logo"><a href="#"><img src="~/Content/assets/img/logo-partner-03.png" alt=""></a></div>
+                <div class="logo"><a href="#"><img src="~/Content/assets/img/logo-partner-04.png" alt=""></a></div>
+                <div class="logo"><a href="#"><img src="~/Content/assets/img/logo-partner-05.png" alt=""></a></div>
+            </div>
+        </div><!-- /.container -->
+    </section><!-- /#partners -->
+</div>
+<script>
+   
+    function initMap() {
+      
+   
+        // Create a map object and specify the DOM element for display.
+        var map = new google.maps.Map(document.getElementById('map'), {
+            center: { lat: 38.7213260661508, lng: 35.4834982222289 },
+            zoom: 17
+        });
+
+        $.get("/Location/GetMapLocations", function (data) {
+
+            var marker = [];
+            var contentString = [];
+            var infowindow= [];
+            for (var i = 0; i < data.length; i++) {
+                var iconName = data[i].catid == 1 ? "/Content/assets/img/icons/villa.png" : data[i].catid == 2 ? "/Content/assets/img/icons/land.png" : data[i].catid == 3 ? "/Content/assets/img/icons/apartment.png" : data[i].catid == 4 ? "/Content/asset/img/icons/house.png" : "/Content/assets/img/icons/shop.png";
+                marker[i] = new google.maps.Marker({
+                    position: { lat: data[i].Lat, lng: data[i].Long },
+                    map: map,
+                    icon:iconName
+                });
+
+
+
+                contentString[i] =
+
+                    '<div  class="property" id="prop'+i+'">' +
+                        '<a href="/Asset/Detail/' + data[i].Id + '">' +
+                           ' <div class="property-image" >' +
+                            '<img id="img'+i+' alt="" src="/Gallery/' + data[i].Id + '/' + data[i].ImageUrl + '"> ' +
+                           ' </div>' +
+                            '<div class="overlay">' +
+                               ' <div class="info">' +
+                                  '  <div class="tag price">₺' + data[i].Price + '</div>' +
+                                    '<figure>+' + data[i].Address + '</figure>' +
+                                '</div>' +
+                           '</div>' +
+                        '</a>' +
+                   ' </div>';
+
+                var widthimg = $('#img' + i).width();
+                //console.log(deger);
+                //var propdeger = $('#prop' + i).width();
+                //console.log(propdeger);
+
+                //$('#prop'+i).width(deger);
+
+                //console.log(propdeger);
+
+
+
+                infowindow[i] = new google.maps.InfoWindow({
+                    content: contentString[i],
+                    maxWidth: 300,
+
+
+                });
+                       var markerValue = marker[i];
+
+                       google.maps.event.addListener(marker[i], 'mouseover', (function (markerValue, i) {
+                    return function () { infowindow[i].open(map, marker[i]); }
+              })(marker[i], i));
+
+            }
+        })
+        }
+</script>
+<!-- end Page Content -->
+

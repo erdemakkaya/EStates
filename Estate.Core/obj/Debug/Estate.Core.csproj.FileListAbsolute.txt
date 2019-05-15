@@ -1,0 +1,5 @@
+d:\documents\visual studio 2015\Projects\EStates\Estate.Core\bin\Debug\Estate.Core.dll
+d:\documents\visual studio 2015\Projects\EStates\Estate.Core\bin\Debug\Estate.Core.pdb
+d:\documents\visual studio 2015\Projects\EStates\Estate.Core\obj\Debug\Estate.Core.csprojResolveAssemblyReference.cache
+d:\documents\visual studio 2015\Projects\EStates\Estate.Core\obj\Debug\Estate.Core.dll
+d:\documents\visual studio 2015\Projects\EStates\Estate.Core\obj\Debug\Estate.Core.pdb

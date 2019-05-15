@@ -1,0 +1,164 @@
+﻿@using Estate.Data.Entities;
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+}
+@model  PagedList.IPagedList<Property>
+<div id="page-content">
+    <!-- Breadcrumb -->
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li class="active">Emlak Listesi</li>
+        </ol>
+    </div>
+    <!-- end Breadcrumb -->
+
+    <div class="container">
+        <div class="row">
+            <!-- Results -->
+            <div class="col-md-9 col-sm-9">
+                <section id="results">
+                    <header><h1>Properties Listing</h1></header>
+                   
+                    <section id="properties">
+                      
+                        <div class="row">
+                        @foreach (var item in Model)
+                        {
+                            <div class="col-md-4 col-sm-4">
+                                <div class="property">
+                                @{if (item.Status == 1)
+                                    {
+                                    <figure class="tag status">Satılık</figure>
+
+
+                                    }
+                                    else 
+                                    {
+
+                                <figure class="tag status">Kiralık</figure>
+
+                                        }
+                                    }
+                                @if (item.IsSold)
+                                {
+                                    <figure class="ribbon">Satıldı</figure>
+
+                                }
+                                    <a href="/Asset/Detail/@item.Id">
+                                        <div class="property-image">
+                                            <img alt="" src="~/Gallery/@item.Id.ToString()/@item.Photo.FirstOrDefault().ImageUrl">
+                                        </div>
+                                        <div class="overlay">
+                                            <div class="info">
+                                                <div class="tag price">@item.Price ₺</div>
+                                                <h3>@item.City</h3>
+                                                <figure>@item.GeoLocation.Address</figure>
+                                            </div>
+                                            <ul class="additional-info">
+                                                <li>
+                                                    <header>Area:</header>
+                                                    <figure>@item.Area m<sup>2</sup></figure>
+                                                </li>
+                                                <li>
+                                                    <header>Oda:</header>
+                                                    <figure>@item.Room</figure>
+                                                </li>
+                                                <li>
+                                                    <header>m² Fiyatı</header>
+                                                    <figure>400 ₺</figure>
+                                                </li>
+                                                <li>
+                                                    <header>Garages:</header>
+                                                    <figure>1</figure>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </a>
+                                </div><!-- /.property -->
+                            </div><!-- /.col-md-3 -->
+
+                        }
+                            
+                        </div><!-- /.row-->
+                            
+                        </section><!-- /#adveritsing-->
+                     
+                        <!-- Pagination -->
+                        <div class="center">
+                            @Html.PagedListPager(Model, page => Url.Action("Index", new { page }), PagedListRenderOptions.Classic)
+                        </div><!-- /.center-->
+
+                </section><!-- /#results -->
+            </div><!-- /.col-md-9 -->
+            <!-- end Results -->
+            <!-- sidebar -->
+            <div class="col-md-3 col-sm-3">
+                <section id="sidebar">
+                    <aside id="edit-search">
+                        <header><h3>Search Properties</h3></header>
+                            @using (@Html.BeginForm("Index", "Asset", FormMethod.Post, new { @class = "form-search", @id = "form-sidebar" }))
+                            {
+                                @Html.Partial("_SearchProperty")
+                            }
+                    </aside><!-- /#edit-search -->
+                    <aside id="featured-properties">
+                        <header><h3>Featured Properties</h3></header>
+                        <div class="property small">
+                            <a href="property-detail.html">
+                                <div class="property-image">
+                                    <img alt="" src="assets/img/properties/property-06.jpg">
+                                </div>
+                            </a>
+                            <div class="info">
+                                <a href="property-detail.html"><h4>2186 Rinehart Road</h4></a>
+                                <figure>Doral, FL 33178 </figure>
+                                <div class="tag price">$ 72,000</div>
+                            </div>
+                        </div><!-- /.property -->
+                        <div class="property small">
+                            <a href="property-detail.html">
+                                <div class="property-image">
+                                    <img alt="" src="assets/img/properties/property-09.jpg">
+                                </div>
+                            </a>
+                            <div class="info">
+                                <a href="property-detail.html"><h4>2479 Murphy Court</h4></a>
+                                <figure>Minneapolis, MN 55402</figure>
+                                <div class="tag price">$ 36,000</div>
+                            </div>
+                        </div><!-- /.property -->
+                        <div class="property small">
+                            <a href="property-detail.html">
+                                <div class="property-image">
+                                    <img alt="" src="assets/img/properties/property-03.jpg">
+                                </div>
+                            </a>
+                            <div class="info">
+                                <a href="property-detail.html"><h4>1949 Tennessee Avenue</h4></a>
+                                <figure>Minneapolis, MN 55402</figure>
+                                <div class="tag price">$ 128,600</div>
+                            </div>
+                        </div><!-- /.property -->
+                    </aside><!-- /#featured-properties -->
+                    <aside id="our-guides">
+                        <header><h3>Our Guides</h3></header>
+                        <a href="#" class="universal-button">
+                            <figure class="fa fa-home"></figure>
+                            <span>Buying Guide</span>
+                            <span class="arrow fa fa-angle-right"></span>
+                        </a><!-- /.universal-button -->
+                        <a href="#" class="universal-button">
+                            <figure class="fa fa-umbrella"></figure>
+                            <span>Right Insurance for You</span>
+                            <span class="arrow fa fa-angle-right"></span>
+                        </a><!-- /.universal-button -->
+                    </aside><!-- /#our-guide -->
+                </section><!-- /#sidebar -->
+            </div><!-- /.col-md-3 -->
+            <!-- end Sidebar -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</div>
+

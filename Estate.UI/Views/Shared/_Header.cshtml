@@ -1,0 +1,85 @@
+﻿@using Estate.Data.Entities
+
+<div class="navigation">
+    <div class="secondary-navigation">
+        <div class="container">
+            <div class="contact">
+                <figure><strong>Tel:</strong>333 333 333</figure>
+                <figure><strong>Eposta:</strong>estate@property.com</figure>
+            </div>
+            <div class="user-area">
+                <div class="actions">
+                    @if (Session["login"] != null)
+                    {
+                        var user = (User)Session["login"];
+                        <a href="/User/UserProperties" class="promoted">@user.Name  @user.Surname</a>
+                        <a href="/User/Profile" class="promoted">Profil</a>
+                        <a href="/User/LogOut" class="promoted">Çıkış Yap</a>
+
+
+
+
+
+                    }
+                    else
+                    {
+
+                    <a href="/User/Register" class="promoted"><strong>Kayıt Ol</strong></a>
+                    <a href="/User/SignIn">Giriş Yap</a>}
+                </div>
+                @*<div class="language-bar">
+                    <a href="#" class="active"><img src="~/Content/assets/img/flags/gb.png" alt=""></a>
+                    <a href="#"><img src="~/Content/assets/img/flags/de.png" alt=""></a>
+                    <a href="#"><img src="~/Content/assets/img/flags/es.png" alt=""></a>
+                </div>*@
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <header class="navbar" id="top" role="banner">
+            <div class="navbar-header">
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="navbar-brand nav" id="brand">
+                    <a href="/Home/Index"><img src="~/Content/assets/img/logo.png" height="40" width="150" alt="brand"></a>
+                </div>
+            </div>
+            <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
+                <ul class="nav navbar-nav">
+                    <li class="active ">
+                        <a href="/Home/Index">Anasayfa</a>
+                        
+                    </li>
+                    <li class="has-child">
+                        <a href="/Asset/Index">Emlak</a>
+                        <ul class="child-navigation">
+                            <li><a href="/Asset/Index">Emlak Listele</a></li>
+                            <li><a href="/Asset/Add">Ekle</a></li>
+                        </ul>
+                    </li>
+                    <li class="active ">
+                        <a href="/Home/Index">Hakkımızda</a>
+
+                        </li>
+                    <li class="active ">
+                        <a href="/Home/Index">İletişim</a>
+
+                    </li>
+
+
+
+
+                 
+                </ul>
+            </nav><!-- /.navbar collapse-->
+            <div class="add-your-property">
+                <a href="/Asset/Add" class="btn btn-default"><i class="fa fa-plus"></i><span class="text">İlanınızı Ekleyin</span></a>
+            </div>
+        </header><!-- /.navbar -->
+    </div><!-- /.container -->
+</div><!-- /.navigation -->
+

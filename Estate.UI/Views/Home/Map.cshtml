@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewBag.Title = "Map";
+}
+
+<h2>Map</h2>
+<style>
+    /* Always set the map height explicitly to define the size of the div
+      * element that contains the map. */
+    #map {
+        height: 400px;
+        width: 1000px;
+    }
+</style>
+
+<div id="map"></div>
+<script>
+    function initMap() {
+        // Create a map object and specify the DOM element for display.
+        var map = new google.maps.Map(document.getElementById('map'), {
+            center: { lat: 38.7213260661508, lng: 35.4834982222289 },
+            zoom: 17
+        });
+
+        $.get("/Location/GetMapLocations", function (data) {
+
+            alert(data);
+            var marker = [];
+            var contentString = [];
+            var infowindow= [];
+            for (var i = 0; i < data.length; i++) {
+                var iconName = data[i].catid == 1 ? "/Content/assets/img/icons/villa.png" : data[i].catid == 2 ? "/Content/assets/img/icons/land.png" : data[i].catid == 3 ? "/Content/assets/img/icons/apartment.png" : data[i].catid == 4 ? "/Content/asset/img/icons/house.png" : "/Content/assets/img/icons/shop.png";
+                marker[i] = new google.maps.Marker({
+                    position: { lat: data[i].Lat, lng: data[i].Long },
+                    map: map,
+                    icon:iconName
+                });
+
+
+           
+                contentString[i] =
+
+                    '<div  class="property" id="prop'+i+'">' +
+                        '<a href="/Asset/Detail/' + data[i].Id + '">' +
+                           ' <div class="property-image" >' +
+                            '<img id="img'+i+' alt="" src="/Gallery/' + data[i].Id + '/' + data[i].ImageUrl + '"> ' +
+                           ' </div>' +
+                            '<div class="overlay">' +
+                               ' <div class="info">' +
+                                  '  <div class="tag price">₺' + data[i].Price + '</div>' +
+                                    '<figure>+' + data[i].Address + '</figure>' +
+                                '</div>' +
+                           '</div>' +
+                        '</a>' +
+                   ' </div>';
+                
+                var widthimg = $('#img' + i).width();
+                //console.log(deger);
+                //var propdeger = $('#prop' + i).width();
+                //console.log(propdeger);
+
+                //$('#prop'+i).width(deger);
+                
+                //console.log(propdeger);
+
+                            
+
+                infowindow[i] = new google.maps.InfoWindow({
+                    content: contentString[i],
+                    maxWidth: 300,
+                  
+                 
+                });
+                       var markerValue = marker[i];
+
+                       google.maps.event.addListener(marker[i], 'mouseover', (function (markerValue, i) {
+                    return function () { infowindow[i].open(map, marker[i]); }
+              })(marker[i], i));
+
+            }
+        })
+        }
+</script>

@@ -1,0 +1,10 @@
+d:\documents\visual studio 2015\Projects\EStates\Estate.Data.Entities\bin\Debug\Estate.Data.Entities.dll.config
+d:\documents\visual studio 2015\Projects\EStates\Estate.Data.Entities\bin\Debug\Estate.Data.Entities.dll
+d:\documents\visual studio 2015\Projects\EStates\Estate.Data.Entities\bin\Debug\Estate.Data.Entities.pdb
+d:\documents\visual studio 2015\Projects\EStates\Estate.Data.Entities\bin\Debug\EntityFramework.dll
+d:\documents\visual studio 2015\Projects\EStates\Estate.Data.Entities\bin\Debug\EntityFramework.SqlServer.dll
+d:\documents\visual studio 2015\Projects\EStates\Estate.Data.Entities\bin\Debug\EntityFramework.xml
+d:\documents\visual studio 2015\Projects\EStates\Estate.Data.Entities\bin\Debug\EntityFramework.SqlServer.xml
+d:\documents\visual studio 2015\Projects\EStates\Estate.Data.Entities\obj\Debug\Estate.Data.Entities.csprojResolveAssemblyReference.cache
+d:\documents\visual studio 2015\Projects\EStates\Estate.Data.Entities\obj\Debug\Estate.Data.Entities.dll
+d:\documents\visual studio 2015\Projects\EStates\Estate.Data.Entities\obj\Debug\Estate.Data.Entities.pdb
